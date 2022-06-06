@@ -9,6 +9,7 @@ import {
 	Platform,
 	NativeEventEmitter,
 	NativeModules,
+	ScrollView
 } from 'react-native';
 
 import ReactNativeAN from './ReactNativeAN';
@@ -39,6 +40,7 @@ const repeatAlarmNotifData = {
 	repeat_interval: 'minutely',
 	interval_value: 5, // repeat after 5 minutes
 };
+
 
 class App extends Component {
 	_subscribeOpen;
@@ -214,7 +216,7 @@ class App extends Component {
 	render() {
 		const {update, fireDate, futureFireDate, alarmId} = this.state;
 		return (
-			<View style={styles.wrapper}>
+			<ScrollView style={styles.wrapper}>
 				<View>
 					<View>
 						<Text>Alarm Date in the future (example 01-01-2022 00:00:00)</Text>
@@ -288,7 +290,7 @@ class App extends Component {
 					/>
 				</View>
 				<Text>{JSON.stringify(update, null, 2)}</Text>
-			</View>
+			</ScrollView>
 		);
 	}
 }

@@ -74,7 +74,9 @@ class AlarmUtil {
     }
 
     private AlarmDatabase getAlarmDB() {
-        return new AlarmDatabase(mContext);
+        //sua thanh realm
+//        return new AlarmDatabase(mContext);
+        return null;
     }
 
     private NotificationManager getNotificationManager() {

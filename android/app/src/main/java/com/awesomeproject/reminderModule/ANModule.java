@@ -3,6 +3,7 @@ package com.awesomeproject.reminderModule;
 import android.app.Application;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.Promise;
@@ -140,54 +141,57 @@ public class ANModule extends ReactContextBaseJavaModule {
     public void sendNotification(ReadableMap details) throws ParseException {
 
 //        Log.d(TAG, "Send notification "+details);
-        Log.d(TAG, "sendNotification: hello");
-        Bundle bundle = Arguments.toBundle(details);
-        
+//        Log.d(TAG, "sendNotification: hello");
+//        Bundle bundle = Arguments.toBundle(details);
+//
+//
+//        AlarmModel alarm = new AlarmModel();
+//
+//        long time = System.currentTimeMillis() / 1000;
+//
+//        alarm.setAlarmId((int) time);
+//
+//        alarm.setActive(1);
+//        alarm.setAutoCancel(bundle.getBoolean("auto_cancel", true));
+//        alarm.setChannel(bundle.getString("channel", "my_channel_id"));
+//        alarm.setColor(bundle.getString("color", "red"));
+//
+//        Bundle data = bundle.getBundle("data");
+//        alarm.setData(bundle2string(data));
+//
+//        alarm.setLargeIcon(bundle.getString("large_icon"));
+//        alarm.setLoopSound(bundle.getBoolean("loop_sound", false));
+//        alarm.setMessage(bundle.getString("message", "My Notification Message"));
+//        alarm.setPlaySound(bundle.getBoolean("play_sound", true));
+//        alarm.setSmallIcon(bundle.getString("small_icon", "ic_launcher"));
+//        alarm.setSnoozeInterval((int)bundle.getDouble("snooze_interval", 1));
+//        alarm.setSoundName(bundle.getString("sound_name"));
+//        alarm.setSoundNames(bundle.getString("sound_names"));
+//        alarm.setTag(bundle.getString("tag"));
+//        alarm.setTicker(bundle.getString("ticker"));
+//        alarm.setTitle(bundle.getString("title", "My Notification Title"));
+//        alarm.setVibrate(bundle.getBoolean("loop_sound", true));
+//        alarm.setHasButton(bundle.getBoolean("has_button", false));
+//        alarm.setVibration((int)bundle.getDouble("vibration", 100));
+//        alarm.setUseBigText(bundle.getBoolean("use_big_text", false));
+//        alarm.setVolume(bundle.getDouble("volume", 0.5));
+//        alarm.setBypassDnd(bundle.getBoolean("bypass_dnd", false));
+//
+//        Calendar calendar = new GregorianCalendar();
+//
+//        alarmUtil.setAlarmFromCalendar(alarm, calendar);
+//
+//        try {
+//            int id = getAlarmDB().insert(alarm);
+//            alarm.setId(id);
+//
+//            alarmUtil.sendNotification(alarm);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
 
-        AlarmModel alarm = new AlarmModel();
+        Toast.makeText(getReactApplicationContext(), "send notification", Toast.LENGTH_LONG).show();
 
-        long time = System.currentTimeMillis() / 1000;
-
-        alarm.setAlarmId((int) time);
-
-        alarm.setActive(1);
-        alarm.setAutoCancel(bundle.getBoolean("auto_cancel", true));
-        alarm.setChannel(bundle.getString("channel", "my_channel_id"));
-        alarm.setColor(bundle.getString("color", "red"));
-
-        Bundle data = bundle.getBundle("data");
-        alarm.setData(bundle2string(data));
-
-        alarm.setLargeIcon(bundle.getString("large_icon"));
-        alarm.setLoopSound(bundle.getBoolean("loop_sound", false));
-        alarm.setMessage(bundle.getString("message", "My Notification Message"));
-        alarm.setPlaySound(bundle.getBoolean("play_sound", true));
-        alarm.setSmallIcon(bundle.getString("small_icon", "ic_launcher"));
-        alarm.setSnoozeInterval((int)bundle.getDouble("snooze_interval", 1));
-        alarm.setSoundName(bundle.getString("sound_name"));
-        alarm.setSoundNames(bundle.getString("sound_names"));
-        alarm.setTag(bundle.getString("tag"));
-        alarm.setTicker(bundle.getString("ticker"));
-        alarm.setTitle(bundle.getString("title", "My Notification Title"));
-        alarm.setVibrate(bundle.getBoolean("loop_sound", true));
-        alarm.setHasButton(bundle.getBoolean("has_button", false));
-        alarm.setVibration((int)bundle.getDouble("vibration", 100));
-        alarm.setUseBigText(bundle.getBoolean("use_big_text", false));
-        alarm.setVolume(bundle.getDouble("volume", 0.5));
-        alarm.setBypassDnd(bundle.getBoolean("bypass_dnd", false));
-
-        Calendar calendar = new GregorianCalendar();
-
-        alarmUtil.setAlarmFromCalendar(alarm, calendar);
-
-        try {
-            int id = getAlarmDB().insert(alarm);
-            alarm.setId(id);
-
-            alarmUtil.sendNotification(alarm);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     @ReactMethod
@@ -202,15 +206,16 @@ public class ANModule extends ReactContextBaseJavaModule {
 
     @ReactMethod
     public void getScheduledAlarms(Promise promise) throws JSONException {
-        Log.i(TAG, "get list alarm");
-        ArrayList<AlarmModel> alarms = alarmUtil.getAlarms();
-        WritableArray array = Arguments.createArray();
-        Gson gson = new Gson();
-        for (AlarmModel alarm : alarms) {
-            WritableMap alarmMap = alarmUtil.convertJsonToMap(new JSONObject(gson.toJson(alarm)));
-            array.pushMap(alarmMap);
-        }
-        promise.resolve(array);
+//        Log.i(TAG, "get list alarm");
+//        ArrayList<AlarmModel> alarms = alarmUtil.getAlarms();
+//        WritableArray array = Arguments.createArray();
+//        Gson gson = new Gson();
+//        for (AlarmModel alarm : alarms) {
+//            WritableMap alarmMap = alarmUtil.convertJsonToMap(new JSONObject(gson.toJson(alarm)));
+//            array.pushMap(alarmMap);
+//        }
+//        promise.resolve(array);
+        Toast.makeText(getReactApplicationContext(), "get list alarm", Toast.LENGTH_LONG).show();
     }
 
     private static String bundle2string(Bundle bundle) {
